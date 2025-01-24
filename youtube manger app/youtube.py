@@ -1,6 +1,19 @@
-def list_all_videos():
-    
+import json 
 
+def load_data():
+    try:
+        with open('yorutube.txt','r')
+    except:
+        pass
+
+def list_all_videos():
+    pass
+def update_video(video):
+    pass
+def update_video(video):
+    pass
+def delete_video(video):
+    pass
 
 while True:
     print("\n youtube manger | option an app")
@@ -14,3 +27,14 @@ while True:
     match choice :
         case "1":
             list_all_videos(video)   
+        case "2":
+            all_video(video)
+        case "3":
+            update_video(video)
+        case "4":
+            delete_video(video)
+        case "5":
+            break
+        case "6":
+        print("invalid choice")
+        
