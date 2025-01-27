@@ -8,12 +8,12 @@ def load_data():
         pass
         return []
 
-def save_data_helper(videos):
+def save_data_helper(video):
     with open('youtube.txt','w') as file:
         json.dump(video,file)
 
 
-def list_all_videos():
+def list_all_videos(video):
     print("\n")
     print("*" * 70)
     for index, video in enumerate(video, start=1):    
@@ -33,39 +33,43 @@ def update_video(video):
     if 1<= index <=len(video):
         name = input("enter the new video name")
         time = input("enter the new time")
-        videos[index-1] ={'name' :name,'time': time}
-        save_data_helper(videos)
+        video[index-1] ={'name' :name,'time': time}
+        save_data_helper(video)
     else:
         print("invalid index selected")
 
 def delete_video(video):
-    list_all_videos(videos)
+    list_all_videos(video)
     index = int(input("enter the video number to be deleted"))
     if 1<= index <= len(video):
         del video[index-1]
-        save_data_helper(videos)
+        save_data_helper(video)
     else:
         print("invalid video index selected")
+def main():
+    video = load_data()
+    while True:
+        print("\n youtube manger | option an app")
+        print("1 list all youtube video")
+        print("2 like all the video")
+        print("3 comment all the video")
+        print("4 subsrube my channel")
+        print("5 notofication my channel")
+        choice = input("enter your choice")
 
-while True:
-    print("\n youtube manger | option an app")
-    print("1 list all youtube video")
-    print("2 like all the video")
-    print("3 comment all the video")
-    print("4 subsrube my channel")
-    print("5 notofication my channel")
-    choice = input("enter your choice")
-    
-    match choice :
-        case "1":
-            list_all_videos(video)   
-        case "2":
-            all_video(video)
-        case "3":
-            update_video(video)
-        case "4":
-            delete_video(video)
-        case "5":
-            break
-        case "6":
-            print("invalid choice")
+        match choice :
+            case "1":
+             list_all_videos(video)   
+            case "2":
+             add_video(video)
+            case "3":
+             update_video(video)
+            case "4":
+             delete_video(video)
+            case "5":
+             break
+            case "6":
+             print("invalid choice")
+        
+if __name__ ==  "__main__":
+    main() 
