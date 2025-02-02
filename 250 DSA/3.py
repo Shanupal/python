@@ -7,10 +7,7 @@
 #     else
 #     l=r
 #     r +=1
-#     return max
-             
-             
-             
+#     return max       
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
         max_profit = 0 
